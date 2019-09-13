@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+
+    <style>
+     
+    
+    h2{
+        font-size:60px;
+        color:purple; 
+        text-align:center;
+         font-family: 'Lobster';
+    }
+   #form1{
+            margin-left:20%;
+            margin-right:20%;
+            background-color: lightblue; opacity:0.8;
+            padding-left:60px;
+            padding-right:60px;
+            padding-bottom:10px;
+            border-radius:10px;
+        }
+    #form2{
+       
+      margin-left:20%;
+      margin-right:20%;
+      background-color: lightblue; opacity:0.8;
+      padding-left:60px;
+      padding-right:60px;
+      padding-bottom:10px;
+      border-radius:10px;
+
+    }
+
+     #form3{
+       
+      margin-left:20%;
+      margin-right:20%;
+      background-color: lightblue; opacity:0.8;
+      padding-left:60px;
+      padding-right:60px;
+      padding-bottom:10px;
+      border-radius:10px;
+
+    }
+
+    p {
+       margin-left: 3%;
+       text-align: center;
+       color:black
+    }
+
+   h1{
+      text-align:center;  
+   }
+
+    #btnRegistro{
+        text-align:center;
+        padding-top:30px;
+        padding-bottom:30px;
+    }
+    body{
+        background-image: url("/static/fondotela1.jpg");
+         background-repeat: no-repeat;
+         background-size:cover
+    }
+  
+    </style>
+</head >
+<body >
+    <h2><strong>Suscribete</strong></h2>
+    
+     <p><strong><i> Te ofrecemos un espacio interactivo donde podrás<br />  
+                 dar a conocer y vender tus productos a tus clientes  <br /> 
+                 de forma facil, rapida y segura. Animate! <br />
+                 haz parte de la innovación y textilizate ahora.</i></strong></p>
+
+    
+
+    <form id="form2"> 
+        <h1><strong>Digite los datos de su Almacen</strong></h1>
+        <div class="form-row">
+                     <div class="form-group col-md-4">
+                          <label for="inputNombreA">Nombre del Almacen</label>
+                          <input type="text" class="form-control" id="inputNombreA" placeholder="digite el nombre del almacen"/>
+                    </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputciudad">Ciudad</label>
+                        <input type="text" class="form-control" id="inputdiciudad" placeholder="ciudad"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputdirecc">Dirección</label>
+                        <input type="text" class="form-control" id="inputdirecc" placeholder="digite su dirección"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                   <div class="form-group col-md-4">
+                        <label for="inputtel">Telefono</label>
+                        <input type="text" class="form-control" id="inputtel" placeholder="ingrese el número"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputcorreo">correo</label>
+                        <input type="text" class="form-control" id="inputcorreo" placeholder="digite el correo"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputnit">Nit</label>
+                        <input type="text" class="form-control" id="inputnit" placeholder="digite el número de nit"/>
+                    </div>
+                </div>
+          
+    </form>
+
+     
+    <div id="btnRegistro">
+        <button type="button" class="btn btn-primary"" onclick="registrar()">Registrar</button>
+    </div>
+    {% endblock %}

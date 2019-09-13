@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 5%;
+            color: purple;
+            font-size: 50px;
+            font-family: 'Lobster';
+        }
+
+
+        .table {
+            border: solid 1px rgb(118, 164, 250);
+            background: rgb(226, 225, 225);
+        }
+
+        .table2 {
+            border: solid 1px rgb(118, 164, 250);
+            background: rgb(226, 225, 225);
+        }
+
+        .contTable {
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        .contTable2 {
+            margin-top: 8%;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        td {
+            text-align: center;
+            border: solid 1px rgb(118, 164, 250)
+        }
+
+        body {
+            background-image: url("/static/fondotela1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        form {
+            margin-left: 5%;
+            margin-right: 5%;
+            background-color: lightblue;
+            opacity: 0.8;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+            color: purple;
+            font-size: 18px;
+        }
+
+        .contSelect {
+            text-align: center;
+        }
+
+        .agregar {
+            color: blue;
+        }
+
+            .agregar:hover {
+                cursor: pointer;
+            }
+
+        .container {
+            background: #fff;
+        }
+
+        table thead tr td{
+            width: 20%;
+            min-width:20%;
+        }
+        .contenedorusuario{
+             text-align: right;
+             padding-right: 20px;
+             color:#fff;
+        }
+        .usuario{
+            padding-right:20px;
+        }
+        #cerrarsesion{
+            cursor:pointer;
+            border-bottom:1px solid;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="contenedorusuario">
+            <label class="usuario" id="usuario">Usuario</label>
+            <label id="cerrarsesion">Cerrar sesion</label>
+        </div>
+        <div class="container">
+    
+            <h1><strong>Textil móvil</strong></h1>
+            <h3><i><strong>Textilizate ahora!</strong></i></h3>
+            <p><i><strong>Bienvenido (a) aquí puedes realizar tus pedidos</strong></i></p>
+    
+    
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Hacer un pedido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#pedidos">Mis solicitudes</a>
+                </li>
+            </ul>
+    
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active contenedorTabla">
+                    <br />
+    
+                    <div class="contSelect col-md-6 offset-md-3" id="alamcenes">
+                        <label for="inputAlmacenes" id="labelalmacenes"><strong>Almacen de preferencia</strong></label>
+                        <select id="inputalmacenes" class="form-control opciones">
+                            <option selected="selected" disabled="disabled">Seleccionar</option>
+                        </select>
+                       <!--<button type="button" onclick="mostrar()" class="btn btn-primary" style="margin-top: 15px;">Ver Productos</button>-->
+                    </div>
+                    <div class="contTable">
+                        <table class="table" id="tabla">
+                            <thead >
+                                <tr>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="NT"><strong>Nombre de la tela</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="color"><strong>color</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="textura"><strong>textura</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="caracteristica"><strong>caracteristicas</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="uso"><strong>uso</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="cantidadD"><strong>Cantidad Disponible (Metros)</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="CantidadR"><strong>Cantidad Requerida (Metros)</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="Precio"><strong>Precio por metro</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="total"><strong>Total</strong> </td>
+                                   
+                                </tr>
+                            
+                            </thead>
+                           
+                        </table>
+                    </div>
+    
+                    <div class="contTable2">
+                        <label><strong>Productos agregados a tu pedido</strong></label>
+                        <table class="table" id="tabla2">
+                            <thead id="trtable2">
+                                <tr>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="NT"><strong>Nombre de la tela</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="color2"><strong>color</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="textura2"><strong>textura</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="caracteristica2"><strong>caracteristicas</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="uso2"><strong>uso</strong>  </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="cantidadD2"><strong>Cantidad Disponible</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="CantidadR2"><strong>Cantidad Requerida</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="Precio2"><strong>Precio por metro</strong> </td>
+                                    <td class="p-3 mb-2 bg-primary  text-white" id="total2"><strong>Total</strong> </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="row" style="padding-top: 10px;">
+                        <div class="col-md-6" style="text-align: right">
+                            <button class="btn btn-outline-primary" id="btnenviar"><b>Enviar</b></button>
+    
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-primary" id="btnfactura"><b>Factura</b></button>
+                        </div>
+    
+                    </div>
+                </div>
+                <div id="pedidos" class="container tab-pane fade">
+                    <br />
+                    <h3>Menu 1</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        
+    <!--<script>
+        function mostrar(){
+            
+            var Nombretela = document.getElementById("nNT").value;
+            var color = document.getElementById("color").value;
+            var textura= document.getElementById("textura").value;
+            var caracteristica= document.getElementById("caracteristica").value;
+            var cantidadD= document.getElementById("cantidadD").value;
+            var cantidadR= document.getElementById("cantidadR").value;
+            var precio= document.getElementById("Precio").value;
+            var total= document.getElementById("total").value;
+            var html = "<td>"+Nombretela+"</td><td>"+color+"</td><td>"+textura+"</td><td>"+caracteristica+"</td><td>"+cantidadD+"</td><td>"+cantidadR+"</td><td>"+precio+"</td><td>"+total+"</td>";
+            var contenido = document.createElement("tr");
+   	        contenido.innerHTML=html;
+            document.getElementById("tabla").appendChild(contenido);
+            
+        }
+    </script>-->
+{% endblock %}

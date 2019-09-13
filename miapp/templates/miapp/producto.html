@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+<style>
+     h1{
+        text-align:center;
+        margin-top:5%;
+        color:purple;
+        font-size:50px;
+          font-family: 'Lobster';
+    }
+      form{
+       width:100%;
+    }
+
+    body {
+        background-image: url("/static/fondotela1.jpg");
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    .contenedor{
+        width:100%;
+    }
+    .menu{
+        display:flex;
+    }
+    .labelMenu{
+        position:absolute;
+        bottom:0;
+        right:0;
+        cursor: pointer;
+        color:#fff;
+        border-bottom:1px solid;
+        font-weight:bold;
+    }
+    .textoAlmacen{
+        text-align:center;
+    }
+    .nuevoProducto{
+        color:blue;
+        padding-left:10px;
+    }
+    .nuevoProducto:hover{
+        cursor:pointer;
+    }
+
+    .tab-content{
+        background:#fff;
+    }
+
+    .contenedorTabla{
+        padding:0;
+        margin:0;
+    }
+    .modal-content{
+        text-align:center;
+    }
+    .modal-title{
+        width:100%;
+    }
+
+    td{
+        width: 23%;
+    }
+    .agregar{
+        cursor:pointer;
+        color:blue;
+    }
+    .contTable{
+        max-height:400px;
+        overflow-y:scroll;   
+    }
+</style>
+</head>
+<body>
+<div class="row contenedor">
+    <div class="col col-12 menu">
+        <div class="col col-10 textoAlmacen">
+            <h1 class="nombreAlmacen" id="nombreAlmacen">Nombre</h1>
+        </div>
+        <div class="col col-2">
+            <label class="labelMenu" id="cerrarsesion">Cerrar Sesion</label>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home">Mis Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#menu1">Solicitudes</a>
+        </li>
+    </ul>
+
+      <div class="tab-content">
+        <div id="home" class="container tab-pane active contenedorTabla"><br>
+          <label class="nuevoProducto"  data-toggle="modal" data-target="#exampleModal2">Nuevo Producto</label>
+          
+          <div class="contTable">
+            <table class="table  table-hover" id="tabla">
+               <thead>
+                   <tr>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="NT"><strong>Nombre de la tela</strong> </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="color"><strong>color</strong>  </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="textura"><strong>textura</strong>  </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="caracteristica"><strong>caracteristicas</strong>  </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="uso"><strong>uso</strong>  </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="cantidadD"><strong>Cantidad Disponible (Metros)</strong> </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="CantidadR"><strong>Cantidad Requerida (Metros)</strong> </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="Precio"><strong>Precio por metro</strong> </td>
+                    <td class="p-3 mb-2 bg-primary  text-white" id="total"><strong>Total</strong> </td>
+                    </tr>
+                </thead>
+                <tbody  id="trtable">
+
+                </tbody>
+             </table>
+          </div>
+        </div>
+        <div id="menu1" class="container tab-pane fade"><br>
+          <h3>Menu 1</h3>
+         
+        </div>
+      </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group " id="NT">
+            <label for="NT">Nombre tela</label>
+            <select  id="NT" class="form-control opciones">
+            <option selected="selected" value="0" disabled="disabled">Seleccionar</option>
+            <option value="1">Antifluido</option>
+            <option value="2">Indigo strech</option>
+            <option value="3">Seda</option>
+            <option value="4">Drill</option>
+            <option value="5">Popelina</option>
+            <option value="6">Chalis</option>
+            <option value="7">Satin</option>
+        </select>
+          <div class="form-group " id="color">
+            <label for="color">color</label>
+            <select  id="color" class="form-control opciones">
+            <option selected="selected" value="0" disabled="disabled">Seleccionar</option>
+            <option value="1">Gris</option>
+            <option value="2">Azul</option>
+            <option value="3">Rojo</option>
+        </select>
+        <div class="form-group " id="textura">
+          <label for="textura">textura</label>
+          <select  id="textura" class="form-control opciones">
+          <option selected="selected" value="0" disabled="disabled">Seleccionar</option>
+          <option value="1">Antifluido</option>
+          <option value="2">Plisada</option>
+          <option value="3">Sedosa</option>
+          <option value="4">Sedosa strech</option>
+      </select>
+      <div class="form-group " id="caracteristica">
+        <label for="caracteristica">caracteristica</label>
+        <select  id="caracteristica" class="form-control opciones">
+        <option selected="selected" value="0" disabled="disabled">Seleccionar</option>
+        <option value="1">La tela antifluido es un impermeable resistente, grueso</option>
+        <option value="2">El denim es una tela de algodón asargado de trama blanca y urdimbre teñida de azul índigo.</option>
+        <option value="3">La seda Tiene una textura suave y lisa, no resbaladiza, a diferencia de las fibras sintéticas</option>
+    </select>
+        </div>
+        <div class="form-group " id="uso">
+          <label for="uso">uso</label>
+          <select  id="uso" class="form-control opciones">
+          <option selected="selected" value="0" disabled="disabled">Seleccionar</option>
+          <option value="1">Ideal para confeccionar uniformes</option>
+          <option value="2">Utilizada especialmente en pantalones (jean), chaquetas</option>
+          <option value="3">A menudo se utiliza para elaborar prendas de vestir blusas, vestidos formales, ropa de alta costura, pijamas, batas, y ropa interior.</option>
+      </select>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Cantidad disponible (Metros):</label>
+             <input type="number" min="1" class="form-control" id="inputinputCantidadDId" />
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Precio por metro:</label>
+             <input type="number" min="1" class="form-control" id="inputprecio" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn_guardar" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
